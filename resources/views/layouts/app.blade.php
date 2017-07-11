@@ -41,7 +41,7 @@
                     </div>
                 </nav>
                 <div class="main-content">
-
+                    @yield('content')
                 </div>
                 {{--<div class="collapse navbar-collapse" id="app-navbar-collapse">--}}
                     {{--<!-- Left Side Of Navbar -->--}}

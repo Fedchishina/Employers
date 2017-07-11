@@ -9,8 +9,11 @@ use App\Http\Requests\PositionRequest;
 class PositionController extends Controller
 {
     //return view with positions
-    public function getPositions() {
+    public function getPositions(Request $request) {
         $positions = Position::orderBy('name')->get();
+        if($request->ajax()) {
+            return view('pages.positions.content', compact('positions'));
+        }
         return view('pages.positions.index', compact('positions'));
     }
 

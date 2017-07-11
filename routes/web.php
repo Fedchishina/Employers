@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/', 'Controller@getTreeEmployers');
 Route::get('/home', 'HomeController@index')->name('home');
 
 //positions

@@ -1,7 +1,8 @@
 $( function() {
+    $( "#accordion" ).accordion();
     'use strict';
 
-    $( "#accordion" ).accordion();
+    var isSending = false;
 
     $('.modal-edit-position').on('click', function () {
         var $this = $(this);
@@ -17,10 +18,25 @@ $( function() {
     });
 
     $('.navbar-nav li').on('click', function () {
+        event.preventDefault();
+
+        if(isSending) return;
+        isSending = true;
+
         var $this = $(this);
-        var $linkHref = $this.find('a');
-        var $navbar = $this.closest('navbar-nav');
-        $navbar.find('li').removeClass('active');
+        $('.navbar-nav li').removeClass('active');
         $this.addClass('active');
+        var $linkHref = $this.find('a').attr('href');
+
+        $.ajax({
+            url: $linkHref,
+            dataType: 'html',
+        }).done(function (data) {
+            $('.main-content').html(data);
+            isSending = false;
+        }).fail(function (err) {
+            alert(err);
+            isSending = false;
+        });
     });
 } );
