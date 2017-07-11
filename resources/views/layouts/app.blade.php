@@ -29,10 +29,10 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li class="active">
-                                <a href="{{ url('/') }}">Tree of employers</a>
+                                <a href="{{ url('/employers/tree') }}">Tree of employers</a>
                             </li>
                             <li>
-                                <a href="{{ url('/') }}">List of employers</a>
+                                <a href="{{ url('/employers/table') }}">List of employers</a>
                             </li>
                             <li>
                                 <a href="{{ url('/positions') }}">Positions</a>
@@ -82,7 +82,6 @@
         </div>
     </div>
 </div>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
