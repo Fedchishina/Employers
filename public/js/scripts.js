@@ -18,6 +18,7 @@ $( function() {
 
     $('.navbar-nav li').on('click', function () {
         var $this = $(this);
+        var $linkHref = $this.find('a');
         var $navbar = $this.closest('navbar-nav');
         $navbar.find('li').removeClass('active');
         $this.addClass('active');

@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<div class="section">
     <div class="btn-group">
         <a class="btn btn-default" id="modal-add-department" href="#modal-container-add-position" role="button" class="btn" data-toggle="modal">
             Add
@@ -32,4 +30,4 @@
     @include('pages.positions.add')
     @include('pages.positions.edit')
     @include('pages.positions.del')
-@endsection
+</div>
