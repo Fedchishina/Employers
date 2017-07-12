@@ -1,7 +1,5 @@
 $( function() {
-    $( "#accordion" ).accordion();
     'use strict';
-
     var isSending = false;
 
     $('.modal-edit-position').on('click', function () {
