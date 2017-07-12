@@ -22,12 +22,6 @@ class CreateEmployersTable extends Migration
             $table->foreign('position_id')
                 ->references('id')
                 ->on('positions');
-            $table->integer('boss_id')
-                ->unsigned()
-                ->nullable();
-            $table->foreign('boss_id')
-                ->references('id')
-                ->on('employers');
             NestedSet::columns($table);
             $table->timestamps();
         });

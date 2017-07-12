@@ -19,8 +19,8 @@
             <tr>
                 <td>{{ $employer->full_name }}</td>
                 <td>{{ $employer->date_beg_work }}</td>
-                <td></td>
-                <td></td>
+                <td>{{ $employer->position->name }}</td>
+                <td>{{ $employer->parent->name }}</td>
                 <td>
                     <a class="btn btn-default modal-edit-employer" href="#modal-container-edit-employer" role="button" class="btn" data-toggle="modal" data-employer="{{ $employer }}">
                         Edit
