@@ -9,7 +9,8 @@ class EmployerController extends Controller
 {
     public function getTreeEmployers(Request $request)
     {
-        $employers = Employer::orderBy('full_name')->get();
+        $employers = Employer::get()->toTree();
+        dd($employers);
         if($request->ajax()) {
             return view('pages.employers.tree.content', compact('employers'));
         }

@@ -14,7 +14,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 //employers
-Route::get('/', 'EmployerController@getTableEmployers');
+Route::get('/', 'EmployerController@getTreeEmployers');
 Route::get('/employers/tree', 'EmployerController@getTreeEmployers');
 Route::get('/employers/table', 'EmployerController@getTableEmployers')->middleware('auth');
 

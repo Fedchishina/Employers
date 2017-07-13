@@ -3,33 +3,33 @@
     <div class="tree well">
         <ul>
             <li>
-                <span><i class="icon-folder-open"></i> Parent123</span>
+                <span><i class="icon-folder-open"></i>Parent</span>
                 <ul>
                     <li>
-                        <span><i class="icon-minus-sign"></i> Child</span>
+                        <span>Child</span>
                         <ul>
                             <li>
-                                <span><i class="icon-leaf"></i> Grand Child</span>
+                                <span>Grand Child</span>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <span><i class="icon-minus-sign"></i> Child</span>
+                        <span>Child</span>
                         <ul>
                             <li>
-                                <span><i class="icon-leaf"></i> Grand Child</span>
+                                <span>Grand Child</span>
                             </li>
                             <li>
-                                <span><i class="icon-minus-sign"></i> Grand Child</span>
+                                <span>Grand Child</span>
                                 <ul>
                                     <li>
-                                        <span><i class="icon-minus-sign"></i> Great Grand Child</span>
+                                        <span>Great Grand Child</span>
                                         <ul>
                                             <li>
-                                                <span><i class="icon-leaf"></i> Great great Grand Child</span>
+                                                <span>Great great Grand Child</span>
                                             </li>
                                             <li>
-                                                <span><i class="icon-leaf"></i> Great great Grand Child</span>
+                                                <span>Great great Grand Child</span>
                                             </li>
                                         </ul>
                                     </li>
@@ -56,6 +56,16 @@
                     </li>
                 </ul>
             </li>
+        </ul>
+        <ul>
+            @foreach ($employers as $employer)
+                <li>
+                    <span>{{ $employer->full_name }}</span>
+                    @if( isset( $employer->children ) && count($employer->children ) > 0 )
+                        @include('pages.employers.tree.children', ['employers' => $employer->children, 'test' => 'true'])
+                    @endif
+                </li>
+            @endforeach
         </ul>
     </div>
 </div>
