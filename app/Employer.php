@@ -15,10 +15,10 @@ class Employer extends Model
     ];
 
     public function position() {
-        return  $this->hasOne('App\Position', 'position_id', 'id');
+        return  $this->hasOne('App\Position', 'id', 'position_id');
     }
 
     public function parent() {
-        return  $this->hasOne('App\Employer', 'parent_id', 'id');
+        return  $this->hasOne('App\Employer', 'id', 'parent_id');
     }
 }

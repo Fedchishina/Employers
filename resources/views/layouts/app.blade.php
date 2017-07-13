@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/treeview.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 </head>
 <body>
 <div class="flex-center position-ref full-height">
@@ -36,6 +37,14 @@
                             </li>
                             <li>
                                 <a href="{{ url('/positions') }}">Positions</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="{{ url('/login') }}">Login</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/register') }}">Register</a>
                             </li>
                         </ul>
                     </div>

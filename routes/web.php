@@ -14,12 +14,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 //employers
-Route::get('/', 'EmployerController@getTreeEmployers');
+Route::get('/', 'EmployerController@getTableEmployers');
 Route::get('/employers/tree', 'EmployerController@getTreeEmployers');
-Route::get('/employers/table', 'EmployerController@getTableEmployers');
+Route::get('/employers/table', 'EmployerController@getTableEmployers')->middleware('auth');
 
 //positions
 Route::get('/positions', 'PositionController@getPositions');
-Route::post('/position/add', 'PositionController@postAddPosition');
-Route::post('/position/edit', 'PositionController@postEditPosition');
-Route::post('/position/del', 'PositionController@postDelPosition');
+Route::post('/position/add', 'PositionController@postAddPosition')->middleware('auth');
+Route::post('/position/edit', 'PositionController@postEditPosition')->middleware('auth');
+Route::post('/position/del', 'PositionController@postDelPosition')->middleware('auth');

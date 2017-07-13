@@ -1,36 +1,50 @@
 <div class="content">
-    <div class="btn-group">
+    <div class="btn-group btn-add">
         <a class="btn btn-default" id="modal-add-department" href="#modal-container-add-employer" role="button" class="btn" data-toggle="modal">
             Add
         </a>
     </div>
-    <table class="table">
+    <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+            <input type="text" name="searchVal" class="form-control" value="{{ Request::get('searchVal') ? Request::get('searchVal'): '' }}"/>
+        </div>
+        <button type="submit" class="btn btn-default">
+            Submit
+        </button>
+    </form>
+
+    <table class="table table-bordered table-employers">
         <thead>
         <tr>
-            <th>Full name</th>
-            <th>Begin date of work</th>
-            <th>Position</th>
-            <th>Boss full name</th>
+            <th data-order="full_name">
+                Full name
+                <span class="btn-sort btn-asc"></span>
+                <span class="btn-sort btn-desc"></span>
+            </th>
+            <th data-order="date_beg_work">
+                Begin date of work
+                <span class="btn-sort btn-asc"></span>
+                <span class="btn-sort btn-desc"></span>
+            </th>
+            <th data-order="positions.name">
+                Position
+                <span class="btn-sort btn-asc"></span>
+                <span class="btn-sort btn-desc"></span>
+            </th>
+            <th data-order="employers.full_name">
+                Boss full name
+                <span class="btn-sort btn-asc"></span>
+                <span class="btn-sort btn-desc"></span>
+            </th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($employers as $employer)
-            <tr>
-                <td>{{ $employer->full_name }}</td>
-                <td>{{ $employer->date_beg_work }}</td>
-                <td>{{ $employer->position->name }}</td>
-                <td>{{ $employer->parent->name }}</td>
-                <td>
-                    <a class="btn btn-default modal-edit-employer" href="#modal-container-edit-employer" role="button" class="btn" data-toggle="modal" data-employer="{{ $employer }}">
-                        Edit
-                    </a>
-                    <a class="btn btn-default modal-del-employer" href="#modal-container-del-employer" role="button" class="btn" data-toggle="modal" data-employer="{{ $employer }}">
-                        Del
-                    </a>
-                </td>
-            </tr>
-        @endforeach
+            @include('pages.employers.table.tbody')
         </tbody>
     </table>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/treeview.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/scripts.js') }}"></script>
 </div>

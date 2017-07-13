@@ -1,0 +1,58 @@
+.table-employers th {
+    position: relative;
+    /*border: 1px solid #ddd;*/
+}
+
+.btn-add {
+    float: left;
+    margin-top: 5px;
+}
+
+.btn-asc, .btn-desc {
+    position: absolute;
+    top: 15px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    cursor: pointer;
+}
+
+.btn-asc {
+    right: 30px;
+    border-bottom: 10px solid #ccc;
+}
+
+.btn-asc:hover {
+    border-bottom-color: #000000;
+}
+
+.btn-asc:active {
+    border-bottom-color: #81b3d2;
+}
+
+.btn-asc-selected,
+.btn-asc-selected:hover,
+.btn-asc-selected:active {
+    border-bottom-color: #81b3d2;
+}
+
+.btn-desc {
+    right: 0;
+    margin-right: 10px;
+    border-top: 10px solid #ccc;
+}
+
+.btn-desc:hover {
+    border-top-color: #000000;
+}
+
+.btn-desc:active {
+    border-top-color: #81b3d2;
+}
+
+.btn-desc-selected,
+.btn-desc-selected:hover,
+.btn-dsc-selected:active {
+    border-top-color: #81b3d2;
+}
