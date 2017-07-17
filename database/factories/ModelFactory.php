@@ -22,3 +22,25 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Position::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+        'name' => 'position ' . $faker->unique()->numberBetween($min = 0, $max = 100),
+        'salary' => $faker->numberBetween($min = 1000, $max = 1000000),
+    ];
+});
+
+
+$factory->define(App\Employer::class, function (Faker\Generator $faker) {
+    $positions = \App\Position::all()->pluck('id')->all();
+    $employers = \App\Employer::all()->pluck('id')->all();
+    return [
+        'full_name' => $faker->name,
+        'date_beg_work' => $faker->date(),
+        'position_id' => $positions ? $faker->randomElement($positions) : null,
+        'parent_id' => $faker->randomElement($employers),
+    ];
+});
+
